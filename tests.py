@@ -14,12 +14,12 @@ def random_key():
 class RateParsingTests(unittest.TestCase):
     def test_rate_parsing(self):
         tests = (
-            ('100/s', (100, 1)),
-            ('100/10s', (100, 10)),
-            ('100/m', (100, 60)),
-            ('400/10m', (400, 10 * 60)),
-            ('600/h', (600, 60 * 60)),
-            ('800/d', (800, 24 * 60 * 60)),
+            ("100/s", (100, 1)),
+            ("100/10s", (100, 10)),
+            ("100/m", (100, 60)),
+            ("400/10m", (400, 10 * 60)),
+            ("600/h", (600, 60 * 60)),
+            ("800/d", (800, 24 * 60 * 60)),
         )
 
         for input, output in tests:
@@ -27,19 +27,18 @@ class RateParsingTests(unittest.TestCase):
 
 
 class DecoratorTests(unittest.TestCase):
-
     def setUp(self):
         self.key = random_key()
 
     def test_view(self):
-        @ratelimit(rate='5/s', key=self.key)
+        @ratelimit(rate="5/s", key=self.key)
         def view():
             return True
 
         assert view()
 
     def test_rate_limit_exception(self):
-        @ratelimit(rate='5/s', key=self.key)
+        @ratelimit(rate="5/s", key=self.key)
         def view():
             return True
 
@@ -50,8 +49,8 @@ class DecoratorTests(unittest.TestCase):
             view()
 
     def test_rate_limit_groups(self):
-        @ratelimit(rate='10/m', key=self.key)
-        @ratelimit(rate='5/s', key=self.key)
+        @ratelimit(rate="10/m", key=self.key)
+        @ratelimit(rate="5/s", key=self.key)
         def view():
             return True
 
@@ -68,5 +67,5 @@ class DecoratorTests(unittest.TestCase):
             view()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

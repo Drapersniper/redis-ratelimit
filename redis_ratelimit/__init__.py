@@ -1,5 +1,5 @@
 from .decorators import ratelimit
 
-VERSION = (1, 0, 3)
+VERSION = (1, 0, 4)
 
-__version__ = '.'.join(str(x) for x in VERSION)
+__version__ = ".".join(str(x) for x in VERSION)
