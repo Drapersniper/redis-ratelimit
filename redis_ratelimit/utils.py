@@ -25,7 +25,7 @@ def is_rate_limited(rate, key, func, redis_pool):
         return False
 
     count, seconds = parse_rate(rate)
-    redis_key = "{}/{}/{}".format(key, func.__name__, count, seconds)
+    redis_key = "{}/{}/{}/{}".format(key, func.__name__, count, seconds)
 
     r = redis.Redis(redis_pool)
 
