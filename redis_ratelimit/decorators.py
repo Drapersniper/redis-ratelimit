@@ -1,7 +1,7 @@
-from functools import wraps
+# from functools import wraps
 
-from redis_ratelimit.exceptions import RateLimited
-from redis_ratelimit.utils import is_rate_limited, default_pool
+# from redis_ratelimit.exceptions import RateLimited
+# from redis_ratelimit.utils import is_rate_limited, default_pool
 
 
 # def _ratelimit(rate: str, key: str, redis_pool: dict = default_pool):
@@ -17,6 +17,6 @@ from redis_ratelimit.utils import is_rate_limited, default_pool
 #     return decorator
 
 
-def ratelimit(rate: str, key: str, value: str, redis_pool: dict = default_pool):
-    check = is_rate_limited(rate, key, value, redis_pool)
-    return check
+# def ratelimit(rate: str, key: str, value: str, redis_pool: dict = default_pool):
+#     check = is_rate_limited(rate, key, value, redis_pool)
+#     return check
